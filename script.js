@@ -29,4 +29,6 @@ forecastBtn.addEventListener('click', function() {
 
     h3.textContent = predictionsText;
     p.textContent = `Вероятность ${probability}%`;
+
+    forecastList.prepend(clone);
 });
