@@ -6,7 +6,7 @@ const forecastItem = document.getElementById('forecast-item');
 
 function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
-}
+};
 
 const predictions = [
   "Ты съездишь в путешествие",
@@ -15,3 +15,7 @@ const predictions = [
   "Спорт укоренится в твоей жизни, и ты начнешь получать удовольствие",
   "Ты очень приятно проведешь много времени с близкими людьми"
 ];
+
+forecastBtn.addEventListener('click', function() {
+
+});
