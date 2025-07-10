@@ -18,4 +18,5 @@ const predictions = [
 
 forecastBtn.addEventListener('click', function() {
     const predictionsIndex = generateRandomNumber(0, predictions.length);
+    const predictionsText = predictions[predictionsIndex];
 });
