@@ -22,4 +22,6 @@ forecastBtn.addEventListener('click', function() {
     const probability = generateRandomNumber(60, 100);
     newForecast.textContent = predictionsText;
     percent.textContent = `Вероятность ${probability}%`;
+
+    const clone = forecastItem.content.cloneNode(true);
 });
