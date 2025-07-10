@@ -24,4 +24,6 @@ forecastBtn.addEventListener('click', function() {
     percent.textContent = `Вероятность ${probability}%`;
 
     const clone = forecastItem.content.cloneNode(true);
+    const h3 = clone.querySelector('h3');
+    const p = clone.querySelector('p');
 });
