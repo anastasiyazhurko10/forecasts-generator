@@ -21,4 +21,5 @@ forecastBtn.addEventListener('click', function() {
     const predictionsText = predictions[predictionsIndex];
     const probability = generateRandomNumber(60, 100);
     newForecast.textContent = predictionsText;
+    percent.textContent = `Вероятность ${probability}%`;
 });
