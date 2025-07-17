@@ -1,15 +1,34 @@
-/* Генерация предсказания должна происходить при клике на кнопку «предсказать судьбу» */
+const forecastBtn = document.querySelector('.forecast-btn');
+const newForecast = document.querySelector('.current-forecast h1');
+const percent = document.querySelector('.current-forecast p');
+const forecastList = document.querySelector('.forecasts');
+const forecastItem = document.getElementById('forecast-item');
 
-/* Заранее заготовь 3-5 предсказаний и в зависимости от того, как лягут карты судьбы (или что скажет Math.random) показывай их пользователю */
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
 
-/* Подставляй текст нового предсказания в .current-forecast h1 */
+const predictions = [
+  "Ты съездишь в путешествие",
+  "В течение недели тебя ждет приятный сюрприз",
+  "В этом году ты найдешь работу мечты",
+  "Спорт укоренится в твоей жизни, и ты начнешь получать удовольствие",
+  "Ты очень приятно проведешь много времени с близкими людьми"
+];
 
-/* Показывай процент вероятности, с которым предсказание сбудется — в верстке это .current-forecast p */
+forecastBtn.addEventListener('click', function() {
+    const predictionsIndex = generateRandomNumber(0, predictions.length);
+    const predictionsText = predictions[predictionsIndex];
+    const probability = generateRandomNumber(0, 100);
+    newForecast.textContent = predictionsText;
+    percent.textContent = `Вероятность ${probability}%`;
 
-/* Данный процент также нужно генерировать автоматически, он может принимать значения от 0 до 100% */
+    const clone = forecastItem.content.cloneNode(true);
+    const h3 = clone.querySelector('h3');
+    const p = clone.querySelector('p');
 
-/* Совет: заведи функцию-хелпер, которая будет заниматься только генерацией данных в диапазоне от min до max и используй ее где нужно */
+    h3.textContent = predictionsText;
+    p.textContent = `Вероятность ${probability}%`;
 
-/* При генерации нового предсказания старое предсказание должно добавляться в начало списка «Мои предсказания» — .forecasts  */
-
-/* Для добавления предсказания в список воспользуйся шаблоном forecast-item */
+    forecastList.prepend(clone);
+});
